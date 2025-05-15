@@ -1,8 +1,23 @@
 from fastapi import FastAPI
 from app.schemas import RoadInput, ClusterOutput
 from app.utils import predict_cluster
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Road Clustering API")
+
+origins = [
+    "http://localhost/padalaja/predict.php",  # spesifik file
+    "http://localhost",                       # atau boleh seluruh localhost
+    "http://127.0.0.1",                       # fallback lain
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,           # hanya izinkan origin tertentu
+    allow_credentials=True,
+    allow_methods=["*"],             # izinkan semua metode (GET, POST, dll)
+    allow_headers=["*"],             # izinkan semua header
+)
 
 @app.get("/")
 def root():
