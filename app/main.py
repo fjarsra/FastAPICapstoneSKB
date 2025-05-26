@@ -8,7 +8,7 @@ app = FastAPI(title="Road Clustering API")
 origins = [
     "http://localhost/padalaja/predict.php",  # spesifik file
     "http://localhost",                       # atau boleh seluruh localhost
-    "http://127.0.0.1",                       # fallback lain
+    "https://padalaja.site",                       # fallback lain
 ]
 
 app.add_middleware(
