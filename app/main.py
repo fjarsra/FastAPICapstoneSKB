@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(title="Road Clustering API")
 
 origins = [
-    "http://localhost/padalaja/predict.php",  # spesifik file
+    "https://padalaja.site/predict.php",  # spesifik file
     "http://localhost",                       # atau boleh seluruh localhost
     "https://padalaja.site",                       # fallback lain
 ]
